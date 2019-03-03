@@ -41,9 +41,10 @@ class CenterWidget(QWidget):
             col_count = col_count+1
             mainGrid.addWidget(self.opgs[i], col_count+1, row_count)
             col_count = col_count+1
+            print(col_count)
             if (i+1) % 2  == 0:
                 row_count = row_count + 1
-                col_count = 0
+                #col_count = 0
                 
         masterFreqLabel = QLabel("Master frequency")
         self.masterFreqSlider = QDial(minimum=0, maximum=127, value=68)
@@ -72,7 +73,7 @@ class OperatorGroup(QWidget):
     def __init__(self, parent=None):
         super(QWidget, self).__init__(parent)
         
-        box = QVBoxLayout()
+        box = QHBoxLayout()
         self.setLayout(box)
         freqLabel = QLabel("Frequency of operator: ")
         self.freqSlider = FreqKnob(minimum=0, maximum=127, value=68)
